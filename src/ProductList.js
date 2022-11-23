@@ -9,16 +9,24 @@ function ProductList() {
     //     setData(result);
     // }, []);
 
+    async function ProductData() {
+        let result = await fetch("http://127.0.0.1:8000/api/list");
+        result = await result.json();
+        setData(result);
+    }
     React.useEffect(() => {
-        async function ProductData() {
-            let result = await fetch("http://127.0.0.1:8000/api/list");
-            result = await result.json();
-            setData(result);
-        }
         ProductData();
     }, []);
-
     console.log("Result", data);
+
+    async function deleteOpreation(id) {
+        let result = await fetch("http://127.0.0.1:8000/api/delete/" + id, {
+            method: "DELETE"
+        });
+        result = await result.json();
+        console.log(result);
+        ProductData();
+    }
     return (
         <div>
             <Header />
@@ -32,6 +40,7 @@ function ProductList() {
                         <td>Price</td>
                         <td>Description</td>
                         <td>Image</td>
+                        <td>Actions</td>
                     </tr>
                 </thead>
                 {
@@ -43,6 +52,7 @@ function ProductList() {
                                 <td>{item.price}</td>
                                 <td>{item.description}</td>
                                 <td><img style={{ width: 40 }} src={"http://localhost:8000/" + item.file_path} /></td>
+                                <td><span onClick={() => deleteOpreation(item.id)} className="delete">Delete</span></td>
                             </tr>
                         </tbody>
                     )
