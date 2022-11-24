@@ -1,6 +1,7 @@
 import Header from "./Header";
 import React, { useState, useEffect } from "react";
 import Table from 'react-bootstrap/Table';
+import { Link } from "react-router-dom";
 function ProductList() {
     const [data, setData] = React.useState([]);
     // React.useEffect(async () => {
@@ -53,6 +54,11 @@ function ProductList() {
                                 <td>{item.description}</td>
                                 <td><img style={{ width: 40 }} src={"http://localhost:8000/" + item.file_path} /></td>
                                 <td><span onClick={() => deleteOpreation(item.id)} className="delete">Delete</span></td>
+                                <td>
+                                    <Link to={"update/" + item.id}>
+                                        <span className="update">update</span>
+                                    </Link>
+                                </td>
                             </tr>
                         </tbody>
                     )

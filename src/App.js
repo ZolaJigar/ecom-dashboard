@@ -22,7 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/add" element={<Protected Cmp={AddProduct} />} />
-          <Route path="/update" element={<Protected Cmp={UpdateProduct} />} />
+          <Route path="/update/:id" element={<Protected Cmp={UpdateProduct} />} />
         </Routes>
       </BrowserRouter>
     </>
