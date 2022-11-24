@@ -18,24 +18,18 @@ function UpdateProduct(props) {
         <>
             <Header />
             <div className="col-sm-8 offset-sm-3">
-                <div className="col-sm-8 offset-sm-3">
+                <div className="col-sm-8 offset-sm-1">
                     <h1 className="col-sm-8 offset-sm-3">Update Product</h1>
-                    <input type="text" defaultValue={data.name} />
+                    <input className="form-control" type="text" defaultValue={data.name} />
                     <br />
+                    <input className="form-control" type="text" defaultValue={data.price} />
                     <br />
-                    <input type="text" defaultValue={data.price} />
+                    <input className="form-control" type="text" defaultValue={data.description} />
                     <br />
+                    <input className="form-control" type="file" defaultValue={data.file_path} />
                     <br />
-                    <input type="text" defaultValue={data.description} />
-                    <br />
-                    <br />
-                    <input type="file" defaultValue={data.file_path} />
-                    <br />
-                    <br />
-                    <img style={{ width: 50 }} src={"http://localhost:8000/" + data.file_path} />
-                    <br />
-                    <br />
-                    <button className="btn btn-primary col-sm-6 offset-sm-3">Update Product</button>
+                    <img className="form-control" style={{ width: 50 }} src={"http://localhost:8000/" + data.file_path} />
+                    <button className="btn btn-primary col-sm-8 offset-sm-2">Update Product</button>
                 </div>
             </div>
         </>
